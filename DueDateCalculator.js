@@ -12,6 +12,11 @@ export default class DueDateCalculator {
     return fullWorkDays * this.workingHoursPerDay + remainingHours;
   }
 
+  isWorkDay(date) {
+    const dayOfWeek = date.getDay();
+    return dayOfWeek >= 1 && dayOfWeek <= this.workingDaysPerWeek && this.isWorkingHour(date);
+  }
+
   isWorkingHour(date) {
     const hour = date.getHours();
     return hour >= this.workStartHour && hour <= this.workEndHour;
