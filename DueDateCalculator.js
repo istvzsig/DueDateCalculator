@@ -11,4 +11,9 @@ export default class DueDateCalculator {
     const remainingHours = turnaroundTime % this.workingHoursPerDay;
     return fullWorkDays * this.workingHoursPerDay + remainingHours;
   }
+
+  isWorkingHour(date) {
+    const hour = date.getHours();
+    return hour >= this.workStartHour && hour <= this.workEndHour;
+  }
 }
