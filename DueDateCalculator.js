@@ -15,22 +15,21 @@ export default class DueDateCalculator {
   calculateDueDateFromTotalHours(submitDate, totalHours) {
     const dueDate = new Date(submitDate);
     let remainingHours = totalHours;
-  
+
     while (remainingHours > 0) {
       dueDate.setHours(dueDate.getHours() + 1);
-  
+
       if (this.isWorkDay(dueDate) && this.isWorkingHour(dueDate)) {
         remainingHours--;
       }
-  
+
       // Move to the next work day if outside working hours
       if (!this.isWorkingHour(dueDate)) {
         // Move to the start of the next working day
-        dueDate.setHours(this.workStartHour, 0, 0, 0);
+        dueDate.setHours(this.workStartHour);
         dueDate.setDate(dueDate.getDate() + 1); // Increment the date here
       }
     }
-  
     return dueDate;
   }
 
