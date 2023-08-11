@@ -5,17 +5,11 @@ export default class DueDateCalculator {
     this.workStartHour = 9;
     this.workEndHour = 17;
   }
-  
+
   calculateDueDate(submitDate, turnaroundTime) {
     const totalHours = this.calculateTotalHours(turnaroundTime);
     const dueDate = this.calculateDueDateFromTotalHours(submitDate, totalHours);
     return dueDate;
-  }
-
-  calculateTotalHours(turnaroundTime) {
-    const fullWorkDays = (turnaroundTime / this.workingHoursPerDay) | 0; // Math floor
-    const remainingHours = turnaroundTime % this.workingHoursPerDay;
-    return fullWorkDays * this.workingHoursPerDay + remainingHours;
   }
 
   calculateDueDateFromTotalHours(submitDate, totalHours) {
@@ -24,12 +18,9 @@ export default class DueDateCalculator {
 
     while (remainingHours > 0) {
       dueDate.setHours(dueDate.getHours() + 1);
-
-      if (this.isWorkDay(dueDate) && this.isWorkingHour(dueDate)) {
+      if (this.isWorkingDay(dueDate) && this.isWorkingHour(dueDate)) {
         remainingHours--;
       }
-
-      // Move to the next work day if outside working hours
       if (!this.isWorkingHour(dueDate)) {
         // Move to the start of the next working day
         dueDate.setHours(this.workStartHour);
@@ -39,7 +30,13 @@ export default class DueDateCalculator {
     return dueDate;
   }
 
-  isWorkDay(date) {
+  calculateTotalHours(turnaroundTime) {
+    const fullWorkDays = (turnaroundTime / this.workingHoursPerDay) | 0; // Math floor
+    const remainingHours = turnaroundTime % this.workingHoursPerDay;
+    return fullWorkDays * this.workingHoursPerDay + remainingHours;
+  }
+
+  isWorkingDay(date) {
     const dayOfWeek = date.getDay();
     return dayOfWeek >= 1 && dayOfWeek <= this.workingDaysPerWeek && this.isWorkingHour(date);
   }
