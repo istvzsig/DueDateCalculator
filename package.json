@@ -2,13 +2,12 @@
   "name": "duedatecalculator",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "This problem statement is provided for illustrative purposes. Please ensure that you refer to the actual problem statement provided to you",
   "main": "index.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Istvan Zsigmond",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.6.2"
