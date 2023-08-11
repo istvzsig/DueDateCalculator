@@ -18,4 +18,12 @@ describe("calculateDueDate", () => {
     const expectedDueDate = new Date("2023-08-16T14:12:00");
     expect(dueDate).toEqual(expectedDueDate);
   });
+
+  test("calculates due date correctly across multiple days including not working days", () => {
+    const submitDate = new Date("2023-08-16T14:12:00");
+    const turnaroundTime = 24;
+    const dueDate = calculator.calculateDueDate(submitDate, turnaroundTime);
+    const expectedDueDate = new Date("2023-08-21T14:12:00");
+    expect(dueDate).toEqual(expectedDueDate);
+  });
 });
