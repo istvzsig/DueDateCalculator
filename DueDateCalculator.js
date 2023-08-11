@@ -1,14 +1,16 @@
+import DateModifier from './modifier/DateModifier.mjs';
+
 import {
-  INCREMENT,
   WORKING_HOURS_PER_DAY,
   WORKING_DAYS_PER_WEEK,
   WORK_START_HOUR,
   WORK_END_HOUR,
   FIRST_WORK_DAY,
-} from './constants/dueDateCalculatorConstants.mjs';
+} from './constant/dueDateCalculatorConstants.mjs';
 
 class DueDateCalculator {
   constructor() {
+    this.dateModifier = DateModifier;
     this.workingHoursPerDay = WORKING_HOURS_PER_DAY;
     this.workingDaysPerWeek = WORKING_DAYS_PER_WEEK;
     this.workStartHour = WORK_START_HOUR;
@@ -27,15 +29,13 @@ class DueDateCalculator {
     let remainingHours = totalHours;
 
     while (remainingHours > 0) {
-      dueDate.setHours(dueDate.getHours() + INCREMENT);
+      this.dateModifier.setHours(dueDate);
       if (this.isWorkingDay(dueDate) && this.isWorkingHour(dueDate)) {
         remainingHours--;
       }
       if (!this.isWorkingHour(dueDate)) {
-        // Move to the start of the next working day
-        dueDate.setHours(this.workStartHour);
-        // Increment the date here
-        dueDate.setDate(dueDate.getDate() + INCREMENT);
+        this.setWorkStartHour(dueDate);
+        this.dateModifier.setDate(dueDate);
       }
     }
     return dueDate;
@@ -55,6 +55,10 @@ class DueDateCalculator {
   isWorkingHour(date) {
     const hour = date.getHours();
     return hour >= this.workStartHour && hour <= this.workEndHour;
+  }
+
+  setWorkStartHour(dueDate) {
+    dueDate.setHours(this.workStartHour);
   }
 }
 

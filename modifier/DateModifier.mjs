@@ -1,4 +1,4 @@
-import { INCREMENT } from "../constants/dueDateCalculatorConstants.mjs";
+import { INCREMENT } from "../constant/dueDateCalculatorConstants.mjs";
 
 class DateModifier {
   static setDate(date) {

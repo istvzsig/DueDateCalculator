@@ -1,5 +1,5 @@
 import DateModifier from "../modifier/DateModifier.mjs";
-import { INCREMENT } from "../constants/dueDateCalculatorConstants.mjs";
+import { INCREMENT } from "../constant/dueDateCalculatorConstants.mjs";
 
 describe("Modify Date object", () => {
   const dateModifier = DateModifier;
