@@ -1,4 +1,4 @@
-export const INCREMENT = 1;
+export const INCREMENT_BY_1 = 1;
 export const WORKING_HOURS_PER_DAY = 8;
 export const WORKING_DAYS_PER_WEEK = 5;
 export const WORK_START_HOUR = 9;
