@@ -5,7 +5,7 @@ import {
   WORK_START_HOUR,
   WORK_END_HOUR,
   FIRST_WORK_DAY,
-} from './constants/dueDateCalculator.mjs';
+} from './constants/dueDateCalculatorConstants.mjs';
 
 class DueDateCalculator {
   constructor() {
