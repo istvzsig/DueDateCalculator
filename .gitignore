@@ -1,3 +1,5 @@
+.DS_Store
+.vscode
 package-lock.json
 node_modules
-Emarsys_homework_2023.pdf
+*.pdf
