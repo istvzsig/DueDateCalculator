@@ -5,6 +5,12 @@ export default class DueDateCalculator {
     this.workStartHour = 9;
     this.workEndHour = 17;
   }
+  
+  calculateDueDate(submitDate, turnaroundTime) {
+    const totalHours = this.calculateTotalHours(turnaroundTime);
+    const dueDate = this.calculateDueDateFromTotalHours(submitDate, totalHours);
+    return dueDate;
+  }
 
   calculateTotalHours(turnaroundTime) {
     const fullWorkDays = (turnaroundTime / this.workingHoursPerDay) | 0; // Math floor
