@@ -17,4 +17,29 @@ describe("Modify Date object", () => {
     const expectedHour = date.getHours() + INCREMENT_BY_1;
     expect(modifiedHour + INCREMENT_BY_1).toBe(expectedHour);
   });
+
+  test("Returns true if submit date can be parsed", () => {
+    const date = new Date("2023-08-14T14:12:00");
+    expect(dateModifier.isValidDate(date)).toBe(true);
+  });
+
+  test("Returns true if submit date can be parsed", () => {
+    const text = "2023-08-14T14:12:00";
+    expect(dateModifier.isValidDate(text)).toBe(true);
+  });
+
+  test("Returns true if submit date can be parsed", () => {
+    const text = "2023-08-14";
+    expect(dateModifier.isValidDate(text)).toBe(true);
+  });
+
+  test("Returns false if submit date can not be parsed", () => {
+    const text = "55fsad323DDK__asd2";
+    expect(dateModifier.isValidDate(text)).toBe(false);
+  });
+  
+  test("Returns false if submit date can not be parsed", () => {
+    const text =  "2023->>??08-14XXX";
+    expect(dateModifier.isValidDate(text)).toBe(false);
+  });
 });
