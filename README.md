@@ -45,6 +45,6 @@ or
 
 ---
 
-Created by [Istvan Zsigmond](https://github.com/istvzsig) 
+Created by [Istvan Zsigmond](https://linkedin.com/in/istvan-zsigmond) 
 
 **Note**: This problem statement is provided for illustrative purposes. Please ensure that you refer to the actual problem statement provided to you.
