@@ -9,4 +9,18 @@ describe("Calculate Total Hours", () => {
     const totalHours = dueDateCalculator.calculateTotalHours(turnaroundTime);
     expect(totalHours).toEqual(19);
   });
+  
+  test('It calculates hours from turnaround time.', () => {
+    // Example: 8 days and 13 hours should result in 85 hours (9 * 8 + 3)
+    const turnaroundTime = 9 * dueDateCalculator.workingHoursPerDay + 13;
+    const totalHours = dueDateCalculator.calculateTotalHours(turnaroundTime);
+    expect(totalHours).toEqual(85);
+  });
+
+  test('It calculates hours from turnaround time.', () => {
+    // Example: 147 days and 10 hours should result in 9416 hours (1176 * 8 + 8)
+    const turnaroundTime = 1176 * dueDateCalculator.workingHoursPerDay + 8;
+    const totalHours = dueDateCalculator.calculateTotalHours(turnaroundTime);
+    expect(totalHours).toEqual(9416);
+  });
 });
