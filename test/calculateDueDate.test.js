@@ -26,4 +26,13 @@ describe("Calculate due date", () => {
     const expectedDueDate = new Date("2023-08-21T14:12:00");
     expect(dueDate).toEqual(expectedDueDate);
   });
+
+  xtest("Calculates due date correctly across multiple days including not working days", () => {
+    const submitDate = new Date("Tue Aug 15 2023 09:28:11 GMT+0200");
+    // Example: 147 days and 10 hours should result in 9416 hours (1176 * 8 + 8)
+    const turnaroundTime = 1176 * calculator.workingHoursPerDay + 8;
+    const dueDate = calculator.calculateDueDate(submitDate, turnaroundTime);
+    const expectedDueDate = new Date("Tue Sep 10 2024 17:28:11 GMT+0200");
+    expect(dueDate).toEqual(expectedDueDate);
+  });  
 });
