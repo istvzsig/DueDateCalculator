@@ -11,10 +11,10 @@ describe("Calculate Total Hours", () => {
   });
   
   test('It calculates hours from turnaround time.', () => {
-    // Example: 8 days and 13 hours should result in 85 hours (9 * 8 + 3)
-    const turnaroundTime = 9 * calculator.workingHoursPerDay + 13;
+    // Example: 8 days and 13 hours should result in 75 hours (9 * 8 + 3)
+    const turnaroundTime = 9 * calculator.workingHoursPerDay + 3;
     const totalHours = calculator.calculateTotalHours(turnaroundTime);
-    expect(totalHours).toEqual(85);
+    expect(totalHours).toEqual(75);
   });
 
   test('It calculates hours from turnaround time.', () => {
