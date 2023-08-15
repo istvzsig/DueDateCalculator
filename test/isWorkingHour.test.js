@@ -1,6 +1,6 @@
 import DueDateCalculator from "../DueDateCalculator";
 
-describe("isWorkingHour", () => {
+describe("Is working hour", () => {
   const calculator = new DueDateCalculator();
 
   test("Returns true if time is within working hours", () => {
